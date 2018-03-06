@@ -19,16 +19,19 @@
   		<%= f.label "Image do projeto:" %> <br>
 		<%= f.file_field :image %>
 	<br>
+	<br>
 	<%= f.label "Arrecadação de R$ 0,00", :id => "budget_label_id" %>
+	<br>
 	<%= f.range_field :budget, :in => 0..500, :step => '1', :id => "budget_id", :value => 0 %>
 	<script type="text/javascript">
-		window.addEventListener('load', function() {
+		(function() {
 			var showElem = document.getElementById("budget_label_id");
 			var elem = document.getElementById("budget_id");
 			elem.addEventListener('change', function() {
 				showElem.innerText = "Arrecadação de R$ " + elem.value + ",00";
+				console.log(elem.value)
 			});
-		});
+		})();
 	</script>
 	<br>
 	<br>
